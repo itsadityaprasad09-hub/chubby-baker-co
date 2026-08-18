@@ -10,7 +10,7 @@
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="site-header">
+<header class="site-header on-hero">
   <div class="container">
     <a href="index.html" class="brand"><span class="mark" aria-hidden="true"></span>Chubby Baker & Co.</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" onclick="document.getElementById('primary-nav').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true')">☰</button>
@@ -27,15 +27,68 @@
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="container">
-      <div class="hero-copy">
+  <section class="hero-full">
+    <div class="scene-bg" aria-hidden="true">
+      <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7A4B32"/>
+            <stop offset="55%" stop-color="#5C3A28"/>
+            <stop offset="100%" stop-color="#3B2418"/>
+          </linearGradient>
+          <radialGradient id="glow" cx="70%" cy="18%" r="45%">
+            <stop offset="0%" stop-color="#F6C77B" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#F6C77B" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8A5A3B"/>
+            <stop offset="100%" stop-color="#4A2E1E"/>
+          </linearGradient>
+        </defs>
+        <rect width="1400" height="900" fill="url(#wall)"/>
+        <rect width="1400" height="900" fill="url(#glow)"/>
+        <!-- shelf with jars -->
+        <rect x="80" y="150" width="360" height="14" fill="#3B2418"/>
+        <g>
+          <ellipse cx="140" cy="120" rx="26" ry="30" fill="#C4586B" opacity="0.85"/>
+          <ellipse cx="200" cy="128" rx="24" ry="26" fill="#FBF1E1" opacity="0.85"/>
+          <ellipse cx="258" cy="118" rx="27" ry="32" fill="#C08A3E" opacity="0.85"/>
+          <ellipse cx="320" cy="126" rx="23" ry="27" fill="#8A9A63" opacity="0.85"/>
+          <ellipse cx="380" cy="120" rx="26" ry="30" fill="#C4586B" opacity="0.7"/>
+        </g>
+        <!-- hanging pendant lamps -->
+        <line x1="1080" y1="0" x2="1080" y2="150" stroke="#2A180F" stroke-width="4"/>
+        <ellipse cx="1080" cy="175" rx="46" ry="26" fill="#2A180F"/>
+        <ellipse cx="1080" cy="182" rx="30" ry="10" fill="#F6C77B" opacity="0.9"/>
+        <line x1="1220" y1="0" x2="1220" y2="230" stroke="#2A180F" stroke-width="4"/>
+        <ellipse cx="1220" cy="255" rx="40" ry="22" fill="#2A180F"/>
+        <ellipse cx="1220" cy="262" rx="26" ry="9" fill="#F6C77B" opacity="0.85"/>
+        <!-- counter -->
+        <rect x="0" y="650" width="1400" height="250" fill="url(#counter)"/>
+        <rect x="0" y="642" width="1400" height="14" fill="#2A180F"/>
+        <!-- cake stand with layered cake -->
+        <ellipse cx="700" cy="655" rx="110" ry="16" fill="#2A180F" opacity="0.5"/>
+        <rect x="660" y="635" width="80" height="10" fill="#D8C9A8"/>
+        <rect x="678" y="600" width="44" height="8" fill="#D8C9A8"/>
+        <path d="M615 635 L615 560 Q700 520 785 560 L785 635 Q700 660 615 635 Z" fill="#FFFAF1" stroke="#2A180F" stroke-width="3"/>
+        <path d="M615 595 L615 570 Q700 535 785 570 L785 595 Q700 622 615 595 Z" fill="#C4586B"/>
+        <path d="M615 560 Q700 520 785 560 Q700 590 615 560 Z" fill="#FFFDF8" stroke="#2A180F" stroke-width="3"/>
+        <circle cx="700" cy="524" r="8" fill="#A63F53" stroke="#2A180F" stroke-width="2"/>
+        <!-- small pastries on counter -->
+        <circle cx="480" cy="628" r="22" fill="#C08A3E"/>
+        <circle cx="530" cy="632" r="18" fill="#8A9A63"/>
+        <circle cx="900" cy="626" r="20" fill="#C4586B"/>
+        <circle cx="950" cy="630" r="16" fill="#FBF1E1" stroke="#2A180F" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <div class="container">
         <span class="eyebrow">home bakery, made to order</span>
         <h1>Cakes baked to <em>remember</em> the day.</h1>
-        <p class="lede">Chubby Baker & Co. is a small, custom-order bakery in Bandra West — every celebration cake, Basque cheesecake and shortbread is made by hand, one order at a time.</p>
+        <p class="lede">A small, custom-order bakery in Bandra West — every celebration cake, Basque cheesecake and shortbread is made by hand, one order at a time.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20custom%20cake." target="_blank" rel="noopener">Order on WhatsApp</a>
-          <a class="btn btn-outline" href="menu.html">See what we bake</a>
+          <a class="btn btn-outline" href="menu.html" style="border-color:var(--cream-soft); color:var(--cream-soft);">See what we bake</a>
         </div>
         <div class="badge-row">
           <span class="badge"><span class="dot"></span>5.0★ on Google (96 reviews)</span>
@@ -43,11 +96,19 @@
           <span class="badge"><span class="dot"></span>Mount Mary, Bandra West</span>
         </div>
       </div>
-      <div class="hero-slice">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C6YoqOKStQn/" data-instgrm-version="14" style="background:#FFFAF1; border:1px solid var(--line); border-radius:18px; margin:0; max-width:400px; width:100%;">
-          <a href="https://www.instagram.com/reel/C6YoqOKStQn/" target="_blank" rel="noopener">View this bake on Instagram</a>
-        </blockquote>
+    </div>
+  </section>
+
+  <section class="bg-cream-soft" style="padding-top:56px;">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">straight from the kitchen</span>
+        <h2>Watch us in action</h2>
+        <p>A peek at how each order comes together — from batter to box.</p>
       </div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C6YoqOKStQn/" data-instgrm-version="14" style="background:#FFFAF1; border:1px solid var(--line); border-radius:18px; margin:0 auto; max-width:420px; width:100%;">
+        <a href="https://www.instagram.com/reel/C6YoqOKStQn/" target="_blank" rel="noopener">View this bake on Instagram</a>
+      </blockquote>
     </div>
   </section>
 
