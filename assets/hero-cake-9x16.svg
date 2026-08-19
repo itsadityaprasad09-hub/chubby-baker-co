@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" role="img" aria-labelledby="t d">
+  <title id="t">Custom celebration cake</title>
+  <desc id="d">A tall frosted celebration cake on a warm bakery counter, vertical composition.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A4B32"/>
+      <stop offset="55%" stop-color="#5C3A28"/>
+      <stop offset="100%" stop-color="#241209"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="60%" cy="14%" r="40%">
+      <stop offset="0%" stop-color="#F6C77B" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F6C77B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8A5A3B"/>
+      <stop offset="100%" stop-color="#3A2314"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1600" fill="url(#wall)"/>
+  <rect width="900" height="1600" fill="url(#glow)"/>
+
+  <!-- hanging pendant light -->
+  <line x1="680" y1="0" x2="680" y2="220" stroke="#1E0F08" stroke-width="5"/>
+  <ellipse cx="680" cy="252" rx="52" ry="30" fill="#1E0F08"/>
+  <ellipse cx="680" cy="260" rx="34" ry="11" fill="#F6C77B" opacity="0.9"/>
+
+  <!-- counter -->
+  <rect x="0" y="1160" width="900" height="440" fill="url(#counter)"/>
+  <rect x="0" y="1150" width="900" height="16" fill="#1E0F08"/>
+  <ellipse cx="450" cy="1180" rx="230" ry="30" fill="#1E0F08" opacity="0.4"/>
+
+  <!-- cake stand -->
+  <rect x="400" y="1148" width="100" height="10" fill="#D8C9A8"/>
+  <rect x="425" y="1120" width="50" height="10" fill="#D8C9A8"/>
+
+  <!-- tall celebration cake, three tiers -->
+  <g>
+    <!-- bottom tier -->
+    <rect x="280" y="960" width="340" height="170" rx="14" fill="#FFFAF1" stroke="#241209" stroke-width="6"/>
+    <rect x="280" y="1010" width="340" height="45" fill="#C4586B"/>
+    <!-- middle tier -->
+    <rect x="330" y="800" width="240" height="170" rx="14" fill="#FFFAF1" stroke="#241209" stroke-width="6"/>
+    <rect x="330" y="850" width="240" height="45" fill="#C08A3E"/>
+    <!-- top tier -->
+    <rect x="375" y="650" width="150" height="160" rx="14" fill="#FFFAF1" stroke="#241209" stroke-width="6"/>
+    <rect x="375" y="700" width="150" height="40" fill="#8A9A63"/>
+    <!-- piped frosting swirl edges -->
+    <path d="M285 960 q170 -34 330 0" fill="none" stroke="#FFFDF8" stroke-width="14" stroke-linecap="round"/>
+    <path d="M335 800 q120 -26 230 0" fill="none" stroke="#FFFDF8" stroke-width="12" stroke-linecap="round"/>
+    <path d="M380 650 q75 -18 140 0" fill="none" stroke="#FFFDF8" stroke-width="10" stroke-linecap="round"/>
+    <!-- cherry topper -->
+    <circle cx="450" cy="618" r="20" fill="#A63F53" stroke="#241209" stroke-width="4"/>
+    <path d="M450 598 q10 -20 -4 -34" fill="none" stroke="#8A9A63" stroke-width="5" stroke-linecap="round"/>
+    <!-- berry decorations -->
+    <circle cx="320" cy="880" r="12" fill="#A63F53"/>
+    <circle cx="360" cy="895" r="10" fill="#A63F53"/>
+    <circle cx="560" cy="880" r="12" fill="#C08A3E"/>
+  </g>
+
+  <!-- soft floor reflection -->
+  <ellipse cx="450" cy="1350" rx="260" ry="26" fill="#1E0F08" opacity="0.35"/>
+</svg>
