@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Chubby Baker & Co</title>
+<meta name="description" content="About Chubby Baker & Co, Bandra West, Mumbai.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top-nav" style="position:relative; background:var(--cocoa);">
+  <span class="logo">Chubby Baker &amp; Co</span>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">☰</button>
+</nav>
+
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-panel" id="navPanel" aria-hidden="true">
+  <button class="close-btn" id="navClose" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="https://wa.me/919167072309" target="_blank" rel="noopener">Order</a></li>
+  </ul>
+</aside>
+
+<header class="page-hero">
+  <div class="container">
+    <h1>About Us</h1>
+    <p>More coming soon</p>
+  </div>
+</header>
+
+<section class="about-body">
+  <p>Chubby Baker &amp; Co is a home-style bakery in Bandra West, Mumbai, baking custom cakes and desserts to order.</p>
+  <p>Full story coming soon — check back shortly, or reach out on WhatsApp with any questions.</p>
+  <p style="margin-top:24px;"><a class="underline-link" href="https://wa.me/919167072309" target="_blank" rel="noopener">Chat with us on WhatsApp →</a></p>
+</section>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  var scrim = document.getElementById('navScrim');
+  var closeBtn = document.getElementById('navClose');
+  function openNav(){ panel.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
+  function closeNav(){ panel.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
+  toggle.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+  scrim.addEventListener('click', closeNav);
+</script>
+
+</body>
+</html>
