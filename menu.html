@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — Chubby Baker & Co</title>
+<meta name="description" content="Full menu of Chubby Baker & Co — custom cakes, basque cheesecake, shortbreads and more. Bandra West, Mumbai.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark" aria-hidden="true"></span>Chubby Baker & Co.</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav" id="navToggle" aria-label="Toggle menu">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <span class="breadcrumb">what we bake</span>
+      <h1>Our Menu</h1>
+      <p style="max-width:56ch;">Everything is made to order in small batches. Custom cake designs, flavours and sizes available on request — just WhatsApp us.</p>
+    </div>
+  </section>
+
+  <div class="layer-divider small" role="presentation"></div>
+
+  <section>
+    <div class="container">
+      <div class="section-head"><span class="kicker">Cakes</span><h2>Celebration & Custom Cakes</h2></div>
+      <div class="grid cols-3">
+        <div class="card"><span class="tag">Best Seller</span><h3>Burnt Basque Cheesecake</h3><p>Deep-caramelised top, light creamy centre.</p><span class="price">from ₹950</span></div>
+        <div class="card"><span class="tag">Made to Order</span><h3>Ultimate Chocolate Cake</h3><p>Rich, moist, deeply chocolatey layers.</p><span class="price">from ₹1,400 (1kg)</span></div>
+        <div class="card"><span class="tag">Custom</span><h3>Custom Tiered Cake</h3><p>Themed, hand-piped designs for birthdays & events.</p><span class="price">on quote</span></div>
+        <div class="card"><h3>Berry Compote Belgian Chocolate</h3><p>Dark Belgian chocolate with a tart berry compote layer.</p><span class="price">from ₹1,500 (1kg)</span></div>
+        <div class="card"><h3>Lemon Loaf</h3><p>Bright, citrusy pound cake, glazed.</p><span class="price">from ₹550</span></div>
+        <div class="card"><h3>Millet Cake</h3><p>Wholesome, lightly sweet, guilt-free.</p><span class="price">from ₹650</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="layer-divider small" role="presentation"></div>
+
+  <section class="bg-cream-soft">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Bakes & Cookies</span><h2>Everyday Favourites</h2></div>
+      <div class="grid cols-3">
+        <div class="card"><span class="tag">Fan Favourite</span><h3>Lasso Shortbreads</h3><p>Buttery, crumbly, baked fresh daily.</p><span class="price">from ₹450 / box</span></div>
+        <div class="card"><h3>Smoked Brownie Bites</h3><p>Fudgy, dense, dark chocolate.</p><span class="price">from ₹400 / box</span></div>
+        <div class="card"><h3>Kunafa Chocolate Bark</h3><p>Crisp kunafa folded into rich chocolate.</p><span class="price">from ₹500</span></div>
+      </div>
+      <p style="text-align:center; margin-top:34px;">
+        <a class="btn btn-primary" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20order%20from%20the%20menu." target="_blank" rel="noopener">Order on WhatsApp</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="fine">
+      <span>© 2026 Chubby Baker &amp; Co. All rights reserved.</span>
+      <span><a href="index.html">Back to home</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('navToggle').addEventListener('click', function(){
+  var nav = document.getElementById('mainNav'); var open = nav.classList.toggle('open'); this.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>
