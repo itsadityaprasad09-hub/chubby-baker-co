@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Chubby Baker & Co</title>
+<meta name="description" content="Get in touch with Chubby Baker & Co — Bandra West, Mumbai. Order custom cakes on WhatsApp.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark" aria-hidden="true"></span>Chubby Baker & Co.</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav" id="navToggle" aria-label="Toggle menu">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <span class="breadcrumb">get in touch</span>
+      <h1>Let's plan your cake.</h1>
+    </div>
+  </section>
+
+  <div class="layer-divider small" role="presentation"></div>
+
+  <section>
+    <div class="container grid cols-2" style="align-items:start;">
+      <div>
+        <h2>Find us</h2>
+        <p>Ground Floor, Kalpana Palace, Dr Peter Dias Road, St Sebastian Colony, Mount Mary, Bandra West, Mumbai 400050</p>
+        <table class="hours-table">
+          <tr><td>Tue – Sun</td><td>11:00 AM – 9:00 PM</td></tr>
+          <tr><td>Monday</td><td>Closed</td></tr>
+        </table>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/919167072309" target="_blank" rel="noopener">WhatsApp Us</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Chubby+Baker+%26+Co+Bandra+West+Mumbai" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe title="Chubby Baker & Co location map" src="https://www.google.com/maps?q=Chubby+Baker+%26+Co,+Dr+Peter+Dias+Road,+Bandra+West,+Mumbai&output=embed" width="100%" height="340" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="layer-divider small" role="presentation"></div>
+
+  <section class="bg-cream-soft">
+    <div class="container" style="max-width:640px;">
+      <h2>Send an enquiry</h2>
+      <form onsubmit="event.preventDefault(); alert('For fastest response, please WhatsApp us directly.');">
+        <div class="form-field"><label for="name">Name</label><input id="name" type="text" required></div>
+        <div class="form-field"><label for="phone">Phone</label><input id="phone" type="tel" required></div>
+        <div class="form-field"><label for="email">Email</label><input id="email" type="email"></div>
+        <div class="form-field"><label for="msg">Message</label><textarea id="msg" rows="4"></textarea></div>
+        <button class="btn btn-primary" type="submit">Send Enquiry</button>
+      </form>
+      <p style="font-size:.85rem; color:var(--cocoa-soft); margin-top:12px;">We'll only use your details to reply to your enquiry.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="fine">
+      <span>© 2026 Chubby Baker &amp; Co. All rights reserved.</span>
+      <span><a href="index.html">Back to home</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('navToggle').addEventListener('click', function(){
+  var nav = document.getElementById('mainNav'); var open = nav.classList.toggle('open'); this.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>
