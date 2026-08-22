@@ -1,0 +1,52 @@
+[
+  {
+    "category": "Cakes by the Slice",
+    "items": [
+      { "name": "Ultimate Chocolate Cake", "qty": "1 Slice", "price": 300 },
+      { "name": "Vanilla Cake", "qty": "1 Slice", "price": 250 },
+      { "name": "Wannabe Chocolate Cake", "qty": "1 Slice", "price": 280 },
+      { "name": "Low Carb Idukki Chocolate Pastry", "qty": "125 g", "price": 385 },
+      { "name": "Carrot Cake", "qty": "130 g", "price": 300 }
+    ]
+  },
+  {
+    "category": "Cookies",
+    "items": [
+      { "name": "Jim Jam Shortbread Bars", "qty": "2 Pieces", "price": 120 }
+    ]
+  },
+  {
+    "category": "Tea Cake",
+    "items": [
+      { "name": "Lemon Glazed Mini Loaf", "qty": "", "price": 175 },
+      { "name": "The Chubby Lamington", "qty": "", "price": 340 }
+    ]
+  },
+  {
+    "category": "High Protein, Zero Sugar Cakes",
+    "items": [
+      { "name": "Peanut Butter & Jelly Cake Bar", "qty": "", "price": 470 },
+      { "name": "Chocolate Berry Cake Bar", "qty": "", "price": 465 }
+    ]
+  },
+  {
+    "category": "Bars",
+    "items": [
+      { "name": "Sugar Free Dates, Chocolate & Pistachio Bars", "qty": "", "price": 257 }
+    ]
+  },
+  {
+    "category": "Brownies / Desserts",
+    "items": [
+      { "name": "Kunafa Brownie", "qty": "", "price": 335 }
+    ]
+  },
+  {
+    "category": "Cake Tub",
+    "items": [
+      { "name": "Mango Vanilla Gateau", "qty": "", "price": 350 },
+      { "name": "Chocolate Mango Tub", "qty": "", "price": 455 },
+      { "name": "Tres Leches Tub", "qty": "350 g", "price": 346 }
+    ]
+  }
+]

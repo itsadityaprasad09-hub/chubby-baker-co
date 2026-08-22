@@ -33,48 +33,9 @@
   </div>
 </header>
 
-<section class="menu-section">
-  <h2>Cakes by the Slice</h2>
-  <div class="menu-item"><div><span class="name">Ultimate Chocolate Cake</span><span class="qty">1 Slice</span></div><span class="price">₹300</span></div>
-  <div class="menu-item"><div><span class="name">Vanilla Cake</span><span class="qty">1 Slice</span></div><span class="price">₹250</span></div>
-  <div class="menu-item"><div><span class="name">Wannabe Chocolate Cake</span><span class="qty">1 Slice</span></div><span class="price">₹280</span></div>
-  <div class="menu-item"><div><span class="name">Low Carb Idukki Chocolate Pastry</span><span class="qty">125 g</span></div><span class="price">₹385</span></div>
-  <div class="menu-item"><div><span class="name">Carrot Cake</span><span class="qty">130 g</span></div><span class="price">₹300</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>Cookies</h2>
-  <div class="menu-item"><div><span class="name">Jim Jam Shortbread Bars</span><span class="qty">2 Pieces</span></div><span class="price">₹120</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>Tea Cake</h2>
-  <div class="menu-item"><div><span class="name">Lemon Glazed Mini Loaf</span></div><span class="price">₹175</span></div>
-  <div class="menu-item"><div><span class="name">The Chubby Lamington</span></div><span class="price">₹340</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>High Protein, Zero Sugar Cakes</h2>
-  <div class="menu-item"><div><span class="name">Peanut Butter &amp; Jelly Cake Bar</span></div><span class="price">₹470</span></div>
-  <div class="menu-item"><div><span class="name">Chocolate Berry Cake Bar</span></div><span class="price">₹465</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>Bars</h2>
-  <div class="menu-item"><div><span class="name">Sugar Free Dates, Chocolate &amp; Pistachio Bars</span></div><span class="price">₹257</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>Brownies / Desserts</h2>
-  <div class="menu-item"><div><span class="name">Kunafa Brownie</span></div><span class="price">₹335</span></div>
-</section>
-
-<section class="menu-section">
-  <h2>Cake Tub</h2>
-  <div class="menu-item"><div><span class="name">Mango Vanilla Gateau</span></div><span class="price">₹350</span></div>
-  <div class="menu-item"><div><span class="name">Chocolate Mango Tub</span></div><span class="price">₹455</span></div>
-  <div class="menu-item"><div><span class="name">Tres Leches Tub</span><span class="qty">350 g</span></div><span class="price">₹346</span></div>
-</section>
+<div id="menuContainer">
+  <p style="text-align:center; padding:40px 0; color:var(--cocoa-soft);">Loading menu…</p>
+</div>
 
 <section class="menu-section" style="text-align:center; padding-bottom:70px;">
   <a class="underline-link" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20order%20from%20the%20menu." target="_blank" rel="noopener" style="font-size:1.05rem;">Order on WhatsApp →</a>
@@ -90,6 +51,24 @@
   toggle.addEventListener('click', openNav);
   closeBtn.addEventListener('click', closeNav);
   scrim.addEventListener('click', closeNav);
+
+  fetch('data/menu.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(categories => {
+      const wrap = document.getElementById('menuContainer');
+      wrap.innerHTML = categories.map(cat => `
+        <section class="menu-section">
+          <h2>${cat.category}</h2>
+          ${cat.items.map(it => `
+            <div class="menu-item">
+              <div><span class="name">${it.name}</span>${it.qty ? `<span class="qty">${it.qty}</span>` : ''}</div>
+              <span class="price">₹${it.price}</span>
+            </div>`).join('')}
+        </section>`).join('');
+    })
+    .catch(() => {
+      document.getElementById('menuContainer').innerHTML = '<p style="text-align:center; padding:40px;">Menu is being updated — please check back shortly, or message us on WhatsApp.</p>';
+    });
 </script>
 
 </body>

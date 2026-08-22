@@ -33,15 +33,8 @@
   </div>
 </header>
 
-<div class="gallery-grid">
-  <div class="gallery-empty">Photo coming soon</div>
-  <div class="gallery-empty">Photo coming soon</div>
-  <div class="gallery-empty">Photo coming soon</div>
-  <div class="gallery-empty">Photo coming soon</div>
-  <div class="gallery-empty">Photo coming soon</div>
-  <div class="gallery-empty">Photo coming soon</div>
-</div>
-<p class="gallery-note">Real photos will be added here soon. In the meantime, follow <a class="underline-link" href="https://www.instagram.com/chubbybakerco/" target="_blank" rel="noopener">@chubbybakerco</a> on Instagram.</p>
+<div class="gallery-grid" id="galleryGrid"></div>
+<p class="gallery-note" id="galleryNote">Real photos will be added here soon. In the meantime, follow <a class="underline-link" href="https://www.instagram.com/chubbybakerco/" target="_blank" rel="noopener">@chubbybakerco</a> on Instagram.</p>
 
 <script>
   var toggle = document.getElementById('navToggle');
@@ -53,6 +46,26 @@
   toggle.addEventListener('click', openNav);
   closeBtn.addEventListener('click', closeNav);
   scrim.addEventListener('click', closeNav);
+
+  fetch('data/gallery.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(photos => {
+      const grid = document.getElementById('galleryGrid');
+      const note = document.getElementById('galleryNote');
+      if(!photos.length){
+        grid.innerHTML = Array(6).fill('<div class="gallery-empty">Photo coming soon</div>').join('');
+        return;
+      }
+      note.style.display = 'none';
+      grid.innerHTML = photos.map(p => `
+        <figure style="margin:0;">
+          <img src="${p.url}" alt="${p.caption || 'Chubby Baker & Co'}" style="width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px;">
+          ${p.caption ? `<figcaption style="text-align:center; font-size:.8rem; margin-top:6px; color:var(--cocoa-soft);">${p.caption}</figcaption>` : ''}
+        </figure>`).join('');
+    })
+    .catch(() => {
+      document.getElementById('galleryGrid').innerHTML = Array(6).fill('<div class="gallery-empty">Photo coming soon</div>').join('');
+    });
 </script>
 
 </body>
