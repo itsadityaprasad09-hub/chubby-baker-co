@@ -21,8 +21,8 @@
 
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-      camera.position.set(0, 0.55, 6.6);
-      camera.lookAt(0, -0.05, 0);
+      camera.position.set(0, 0.3, 7.2);
+      camera.lookAt(0, -0.4, 0);
 
       var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -31,79 +31,105 @@
       stage.appendChild(renderer.domElement);
 
       // ---- lighting: warm bakery-window glow ----
-      var hemi = new THREE.HemisphereLight(0xfff2d8, 0x3b2418, 0.65);
+      var hemi = new THREE.HemisphereLight(0xfff2d8, 0x3b2418, 0.75);
       scene.add(hemi);
-      var key = new THREE.DirectionalLight(0xfff0d0, 1.15);
+      var key = new THREE.DirectionalLight(0xfff0d0, 1.3);
       key.position.set(3, 5, 4);
       scene.add(key);
-      var gold = new THREE.PointLight(0xd4a24c, 0.9, 12);
+      var gold = new THREE.PointLight(0xffe4a3, 1.1, 12);
       gold.position.set(-3, 1.5, 2.5);
       scene.add(gold);
-      var rim = new THREE.PointLight(0xa63f53, 0.4, 12);
+      var rim = new THREE.PointLight(0xffd98a, 0.6, 12);
       rim.position.set(2, -1, -3);
       scene.add(rim);
+      var fill = new THREE.PointLight(0xfff8ea, 0.5, 14);
+      fill.position.set(0, 1, 5);
+      scene.add(fill);
 
       var cake = new THREE.Group();
       scene.add(cake);
 
-      // ---- plate ----
-      var plateMat = new THREE.MeshStandardMaterial({ color: 0xfffaf1, roughness: 0.35, metalness: 0.05 });
-      var plate = new THREE.Mesh(new THREE.CylinderGeometry(2.15, 2.25, 0.14, 48), plateMat);
-      plate.position.y = -1.55;
-      cake.add(plate);
+      // ---- gold cake board ----
+      var boardMat = new THREE.MeshStandardMaterial({ color: 0xe0b23c, roughness: 0.3, metalness: 0.55, emissive: 0x2a1c04, emissiveIntensity: 0.25 });
+      var board = new THREE.Mesh(new THREE.CylinderGeometry(2.05, 2.05, 0.1, 56), boardMat);
+      board.position.y = -1.55;
+      cake.add(board);
 
-      // ---- three tapering tiers ----
-      var tierColors = [0x6d351f, 0x8a4526, 0xa5602f];
-      var frostColors = [0xfff2d8, 0xffe9c2, 0xffdfa8];
-      var radii = [[1.55, 1.5], [1.2, 1.15], [0.85, 0.8]];
-      var heights = [0.62, 0.56, 0.5];
-      var y = -1.35;
-      for (var i = 0; i < 3; i++) {
+      // ---- two white buttercream tiers ----
+      var icingMat = new THREE.MeshStandardMaterial({ color: 0xfaf7f1, roughness: 0.88, metalness: 0.02 });
+      var radii = [[1.55, 1.55], [1.05, 1.05]];
+      var heights = [1.05, 0.95];
+      var y = -1.5;
+      var tierTopY = [];
+      for (var i = 0; i < 2; i++) {
         var h = heights[i];
-        var body = new THREE.Mesh(
-          new THREE.CylinderGeometry(radii[i][1], radii[i][0], h, 40),
-          new THREE.MeshStandardMaterial({ color: tierColors[i], roughness: 0.55 })
-        );
+        var body = new THREE.Mesh(new THREE.CylinderGeometry(radii[i][1], radii[i][0], h, 48), icingMat);
         body.position.y = y + h / 2;
         cake.add(body);
+        // soft top cap so the tier reads as frosted, not a flat cylinder cap
+        var cap = new THREE.Mesh(new THREE.CylinderGeometry(radii[i][1] * 0.99, radii[i][1] * 0.99, 0.04, 48), icingMat);
+        cap.position.y = y + h + 0.02;
+        cake.add(cap);
+        tierTopY.push(y + h);
+        y += h + 0.05;
+      }
 
-        var frost = new THREE.Mesh(
-          new THREE.TorusGeometry(radii[i][1] * 0.98, h * 0.22, 12, 40),
-          new THREE.MeshStandardMaterial({ color: frostColors[i], roughness: 0.4 })
+      // ---- gold leaf appliques, scattered in asymmetric clusters like real sugar-leaf decor ----
+      var goldMat = new THREE.MeshStandardMaterial({ color: 0xe8c458, roughness: 0.42, metalness: 0.4, side: THREE.DoubleSide, emissive: 0x3a2705, emissiveIntensity: 0.35 });
+      var stemMat = new THREE.MeshStandardMaterial({ color: 0xc9a227, roughness: 0.45, metalness: 0.45 });
+
+      function leafShape(len, wid) {
+        var s = new THREE.Shape();
+        s.moveTo(0, 0);
+        s.quadraticCurveTo(wid, len * 0.35, 0, len);
+        s.quadraticCurveTo(-wid, len * 0.35, 0, 0);
+        return s;
+      }
+      function makeLeaf(len, wid) {
+        var geo = new THREE.ExtrudeGeometry(leafShape(len, wid), { depth: 0.012, bevelEnabled: false });
+        return new THREE.Mesh(geo, goldMat);
+      }
+
+      // place a cluster of leaves + thin stems on the curved surface of a tier
+      function placeCluster(radius, tierY, tierH, angleCenter, leafCount, scale) {
+        var group = new THREE.Group();
+        var branch = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.008, 0.008, 0.7 * scale, 5),
+          stemMat
         );
-        frost.rotation.x = Math.PI / 2;
-        frost.position.y = y + h - h * 0.1;
-        cake.add(frost);
+        branch.rotation.z = Math.PI / 2.3;
+        group.add(branch);
 
-        y += h;
+        for (var k = 0; k < leafCount; k++) {
+          var len = (0.42 + Math.random() * 0.2) * scale;
+          var wid = len * 0.46;
+          var leaf = makeLeaf(len, wid);
+          var t = k / (leafCount - 1 || 1);
+          leaf.position.set((t - 0.5) * 0.75 * scale, (Math.random() - 0.5) * 0.22 * scale, 0.015);
+          leaf.rotation.z = (t - 0.5) * 1.7 + (Math.random() - 0.5) * 0.4;
+          leaf.rotation.y = (Math.random() - 0.5) * 0.5;
+          group.add(leaf);
+        }
+
+        var yPos = tierY - tierH * (0.25 + Math.random() * 0.5);
+        group.position.set(Math.cos(angleCenter) * (radius + 0.02), yPos, Math.sin(angleCenter) * (radius + 0.02));
+        group.rotation.y = -angleCenter + Math.PI / 2;
+        group.rotation.z = (Math.random() - 0.5) * 0.3;
+        cake.add(group);
       }
 
-      // ---- drips on top tier ----
-      var dripMat = new THREE.MeshStandardMaterial({ color: 0xd4a24c, roughness: 0.3, metalness: 0.15 });
-      var dripCount = 10;
-      for (var d = 0; d < dripCount; d++) {
-        var angle = (d / dripCount) * Math.PI * 2;
-        var drip = new THREE.Mesh(new THREE.SphereGeometry(0.055, 10, 10), dripMat);
-        drip.position.set(Math.cos(angle) * 0.82, y - 0.08, Math.sin(angle) * 0.82);
-        cake.add(drip);
-      }
+      // top tier clusters (angles in radians around the cylinder)
+      placeCluster(radii[0][1], tierTopY[0], heights[0], 0.35, 6, 1.15);
+      placeCluster(radii[0][1], tierTopY[0], heights[0], 2.5, 4, 0.85);
+      placeCluster(radii[0][1], tierTopY[0], heights[0], -2.2, 5, 0.95);
 
-      // ---- cherry on top ----
-      var cherry = new THREE.Mesh(
-        new THREE.SphereGeometry(0.16, 20, 20),
-        new THREE.MeshStandardMaterial({ color: 0xa63f53, roughness: 0.25, metalness: 0.1 })
-      );
-      cherry.position.y = y + 0.14;
-      cake.add(cherry);
-      var stem = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.012, 0.012, 0.18, 6),
-        new THREE.MeshStandardMaterial({ color: 0x3b2418 })
-      );
-      stem.position.y = y + 0.3;
-      stem.rotation.z = 0.3;
-      cake.add(stem);
+      // bottom tier clusters
+      placeCluster(radii[1][1], tierTopY[1], heights[1], 1.15, 6, 1.2);
+      placeCluster(radii[1][1], tierTopY[1], heights[1], -1.4, 5, 1.0);
+      placeCluster(radii[1][1], tierTopY[1], heights[1], 3.0, 4, 0.8);
+      placeCluster(radii[1][1], tierTopY[1], heights[1], -0.15, 3, 0.7);
 
-      cake.position.y = -0.35;
+      cake.position.y = -0.15;
 
       // ---- interaction: drag to rotate, gentle auto-spin otherwise ----
       var targetRotY = 0.4, targetRotX = 0;

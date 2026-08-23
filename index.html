@@ -188,6 +188,17 @@
   </div>
 </section>
 
+<section class="reviews-section reveal">
+  <div class="reviews-head container">
+    <span class="kicker">Kind Words</span>
+    <h2>What people are saying</h2>
+  </div>
+  <div class="review-box" id="reviewBox">
+    <p style="padding:40px; color:var(--cocoa-soft);">Loading reviews…</p>
+  </div>
+  <div class="review-dots" id="reviewDots"></div>
+</section>
+
 <div class="divider-bar"></div>
 
 <footer id="location">
@@ -231,6 +242,56 @@
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script src="assets/main.js"></script>
 <script src="assets/cake3d.js"></script>
+<script>
+(function () {
+  var box = document.getElementById('reviewBox');
+  var dotsWrap = document.getElementById('reviewDots');
+  fetch('data/reviews.json?t=' + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (reviews) {
+      if (!reviews.length) { box.innerHTML = '<p style="padding:40px;">Reviews coming soon.</p>'; return; }
+      box.innerHTML = reviews.map(function (rv, i) {
+        var stars = '★'.repeat(rv.rating || 5) + '☆'.repeat(5 - (rv.rating || 5));
+        return '<div class="review-slide' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' +
+          '<div class="review-quote">&ldquo;</div>' +
+          '<div class="review-stars">' + stars + '</div>' +
+          '<p class="review-text">' + rv.text + '</p>' +
+          '<div class="review-name">' + rv.name + '</div>' +
+          '</div>';
+      }).join('');
+      dotsWrap.innerHTML = reviews.map(function (_, i) {
+        return '<button class="review-dot' + (i === 0 ? ' active' : '') + '" data-i="' + i + '" aria-label="Show review ' + (i + 1) + '"></button>';
+      }).join('');
+
+      var slides = box.querySelectorAll('.review-slide');
+      var dots = dotsWrap.querySelectorAll('.review-dot');
+      var current = 0, timer;
+
+      function show(i) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      function next() { show(current + 1); }
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(next, 4500);
+      }
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          show(parseInt(dot.getAttribute('data-i'), 10));
+          startAuto();
+        });
+      });
+      if (slides.length > 1) startAuto();
+    })
+    .catch(function () {
+      box.innerHTML = '<p style="padding:40px; color:var(--cocoa-soft);">Reviews coming soon.</p>';
+    });
+})();
+</script>
 
 </body>
 </html>

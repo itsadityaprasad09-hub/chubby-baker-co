@@ -1,0 +1,5 @@
+[
+  { "name": "Add a customer name", "text": "Replace this with a real review from Google, Instagram or WhatsApp — quote it exactly as the customer wrote it.", "rating": 5 },
+  { "name": "Add a customer name", "text": "This is placeholder text. Swap in your actual customer feedback before this goes live for visitors to see.", "rating": 5 },
+  { "name": "Add a customer name", "text": "Edit data/reviews.json to add as many real reviews as you like — the carousel will cycle through all of them.", "rating": 5 }
+]
