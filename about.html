@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Chubby Baker & Co</title>
 <meta name="description" content="About Chubby Baker & Co, Bandra West, Mumbai.">
+<link rel="canonical" href="https://itsadityaprasad09-hub.github.io/chubby-baker-co/about.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="top-nav" style="position:relative; background:var(--cocoa);">
   <span class="logo">Chubby Baker &amp; Co</span>
@@ -26,31 +33,32 @@
   </ul>
 </aside>
 
+<main id="main">
 <header class="page-hero">
   <div class="container">
+    <span class="kicker">Our Story</span>
     <h1>About Us</h1>
-    <p>More coming soon</p>
+    <p>A home kitchen, not a factory</p>
   </div>
 </header>
 
-<section class="about-body">
+<section class="about-body reveal">
   <p>Chubby Baker &amp; Co is a home-style bakery in Bandra West, Mumbai, specialising in custom cakes and small-batch bakes — from burnt basque cheesecake to buttery lasso shortbreads.</p>
   <p>There's no walk-in counter — every order is made after you reach out on WhatsApp or by phone, so it's baked fresh, close to when you need it.</p>
-  <p style="margin-top:24px;"><strong>Dr Peter Dias Rd, Mount Mary, Bandra West, Mumbai 400050</strong><br>Open Tue–Sun, 11:00am–12:00am · Closed Mondays</p>
-  <p style="margin-top:24px;"><a class="underline-link" href="https://wa.me/919167072309" target="_blank" rel="noopener">Chat with us on WhatsApp →</a></p>
 </section>
 
-<script>
-  var toggle = document.getElementById('navToggle');
-  var panel = document.getElementById('navPanel');
-  var scrim = document.getElementById('navScrim');
-  var closeBtn = document.getElementById('navClose');
-  function openNav(){ panel.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
-  function closeNav(){ panel.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
-  toggle.addEventListener('click', openNav);
-  closeBtn.addEventListener('click', closeNav);
-  scrim.addEventListener('click', closeNav);
-</script>
+<blockquote class="about-quote reveal">"Slow bakes, real butter, and plenty of care — that's the whole recipe."</blockquote>
 
+<section class="about-body reveal" style="margin-top:0;">
+  <p style="margin-top:0;"><strong>Dr Peter Dias Rd, Mount Mary, Bandra West, Mumbai 400050</strong><br>Open Tue–Sun, 11:00am–12:00am · Closed Mondays</p>
+  <p style="margin-top:24px;"><a class="btn btn-gold" style="color:#3B2418;" href="https://wa.me/919167072309" target="_blank" rel="noopener">Chat with us on WhatsApp</a></p>
+</section>
+</main>
+
+<a class="whatsapp-fab" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20cake." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script src="assets/main.js"></script>
 </body>
 </html>

@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu — Chubby Baker & Co</title>
 <meta name="description" content="Full menu and prices — Chubby Baker & Co, Bandra West, Mumbai.">
+<link rel="canonical" href="https://itsadityaprasad09-hub.github.io/chubby-baker-co/menu.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="top-nav" style="position:relative; background:var(--cocoa);">
   <span class="logo">Chubby Baker &amp; Co</span>
@@ -26,8 +33,10 @@
   </ul>
 </aside>
 
+<main id="main">
 <header class="page-hero">
   <div class="container">
+    <span class="kicker">The Full Spread</span>
     <h1>Our Menu</h1>
     <p>All prices in ₹ · Order on WhatsApp</p>
   </div>
@@ -37,34 +46,42 @@
   <p style="text-align:center; padding:40px 0; color:var(--cocoa-soft);">Loading menu…</p>
 </div>
 
-<section class="menu-section" style="text-align:center; padding-bottom:70px;">
-  <a class="underline-link" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20order%20from%20the%20menu." target="_blank" rel="noopener" style="font-size:1.05rem;">Order on WhatsApp →</a>
+<section class="menu-section reveal" style="text-align:center; padding:50px 0 80px;">
+  <a class="btn btn-gold" style="color:#3B2416;" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20order%20from%20the%20menu." target="_blank" rel="noopener">Order on WhatsApp</a>
 </section>
+</main>
 
+<a class="whatsapp-fab" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20cake." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script src="assets/main.js"></script>
 <script>
-  var toggle = document.getElementById('navToggle');
-  var panel = document.getElementById('navPanel');
-  var scrim = document.getElementById('navScrim');
-  var closeBtn = document.getElementById('navClose');
-  function openNav(){ panel.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
-  function closeNav(){ panel.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
-  toggle.addEventListener('click', openNav);
-  closeBtn.addEventListener('click', closeNav);
-  scrim.addEventListener('click', closeNav);
-
   fetch('data/menu.json?t=' + Date.now())
     .then(r => r.json())
     .then(categories => {
       const wrap = document.getElementById('menuContainer');
-      wrap.innerHTML = categories.map(cat => `
-        <section class="menu-section">
-          <h2>${cat.category}</h2>
+      wrap.innerHTML = categories.map((cat, i) => `
+        <section class="menu-section reveal">
+          <h2><span>${cat.category}</span></h2>
           ${cat.items.map(it => `
             <div class="menu-item">
               <div><span class="name">${it.name}</span>${it.qty ? `<span class="qty">${it.qty}</span>` : ''}</div>
               <span class="price">₹${it.price}</span>
             </div>`).join('')}
         </section>`).join('');
+      // re-run reveal observer for dynamically injected sections
+      var revealEls = document.querySelectorAll('.menu-section.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+          });
+        }, { threshold: 0.1 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('in-view'); });
+      }
     })
     .catch(() => {
       document.getElementById('menuContainer').innerHTML = '<p style="text-align:center; padding:40px;">Menu is being updated — please check back shortly, or message us on WhatsApp.</p>';
