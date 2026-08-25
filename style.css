@@ -22,6 +22,8 @@ a{ text-decoration:none; color:inherit; }
   padding: 20px 28px; color: var(--cream-soft);
 }
 .top-nav .logo{ font-family: var(--hand); font-size:1.6rem; }
+.logo-img{ height:46px; width:46px; border-radius:50%; display:block; object-fit:cover; box-shadow:0 2px 10px rgba(0,0,0,.25); background:#fff; }
+.dish-photo img{ width:100%; height:auto; display:block; }
 .nav-toggle{
   background:none; border:2px solid var(--cream-soft); border-radius:8px; color:var(--cream-soft);
   width:44px; height:38px; font-size:1.25rem; cursor:pointer; line-height:1;
@@ -86,6 +88,7 @@ footer p{ margin:2px 0; font-size:.98rem; }
   border: 2px solid var(--berry); margin: 10px 0 18px;
 }
 .foot-logo{ font-family:var(--hand); font-size:1.8rem; margin-top:8px; }
+.foot-logo-img{ height:64px; width:64px; border-radius:50%; object-fit:cover; box-shadow:0 4px 14px rgba(0,0,0,.3); background:#fff; }
 .whatsapp-icon{ display:inline-flex; margin-top:14px; }
 .map-frame{ border-radius: 10px; overflow:hidden; margin-top:14px; }
 
