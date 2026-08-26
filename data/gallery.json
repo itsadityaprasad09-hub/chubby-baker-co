@@ -1,3 +1,10 @@
 [
-  { "url": "assets/brownies-photo.jpg", "caption": "Fresh Chocolate Chip Brownies" }
+  {
+    "url": "assets/brownies-photo.jpg",
+    "caption": "Fresh Chocolate Chip Brownies"
+  },
+  {
+    "url": "assets/gallery/photo-1787708249678.jpg",
+    "caption": ""
+  }
 ]
