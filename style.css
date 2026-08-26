@@ -76,6 +76,49 @@ a{ text-decoration:none; color:inherit; }
 /* divider */
 .divider-bar{ height:70px; background: var(--tan); }
 
+/* ---------- reviews ---------- */
+.reviews-section{ padding: 70px 0 20px; text-align:center; }
+.reviews-section h2{ font-size: clamp(1.7rem, 4vw, 2.2rem); }
+.rating-badges{ display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin: 20px 0 36px; }
+.rating-badge{ background: var(--cream); border-radius:14px; padding:14px 26px; min-width:140px; }
+.rating-badge .stars{ color: var(--gold, #c9932f); font-size:1.1rem; letter-spacing:.1em; }
+.rating-badge .score{ font-family: var(--serif); font-size:1.6rem; color: var(--cocoa); margin:2px 0; }
+.rating-badge .src{ font-size:.8rem; color: var(--cocoa-soft); }
+.review-box{
+  position:relative; width:min(90vw, 360px); aspect-ratio: 1/1; margin: 0 auto;
+  background: var(--cream); border-radius: 22px; overflow:hidden;
+  box-shadow: 0 18px 40px -20px rgba(59,36,24,.3);
+}
+.review-slide{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding: 34px 30px; opacity:0; transition: opacity .5s ease; pointer-events:none;
+}
+.review-slide.active{ opacity:1; pointer-events:auto; }
+.review-slide .stars{ color: var(--gold, #c9932f); font-size:1rem; letter-spacing:.12em; margin-bottom:14px; }
+.review-slide p{ font-size:.98rem; color: var(--cocoa); line-height:1.55; margin:0; }
+.review-slide .src-tag{ font-family: var(--hand); font-size:1.15rem; color: var(--berry); margin-top:16px; }
+.review-dots{ display:flex; gap:7px; justify-content:center; margin-top:18px; }
+.review-dot{ width:7px; height:7px; border-radius:50%; background: var(--tan); border:none; padding:0; cursor:pointer; }
+.review-dot.active{ background: var(--berry); }
+.reviews-cta{ margin-top:20px; font-size:.9rem; }
+
+/* ---------- enquiry form ---------- */
+.enquiry-section{ padding: 60px 0 80px; text-align:center; }
+.enquiry-section h2{ font-size: clamp(1.7rem, 4vw, 2.2rem); }
+.enquiry-section > .container > p{ color: var(--cocoa-soft); max-width:480px; margin: 10px auto 30px; }
+.enquiry-form{ max-width: 460px; margin:0 auto; text-align:left; display:flex; flex-direction:column; gap:14px; }
+.enquiry-form input, .enquiry-form textarea{
+  width:100%; padding:13px 16px; border-radius:10px; border:1.5px solid rgba(59,36,24,.18);
+  font-family: var(--sans); font-size:.95rem; background:#fff; color: var(--cocoa);
+}
+.enquiry-form textarea{ resize:vertical; min-height:90px; }
+.enquiry-form button{
+  background: var(--berry); color:#fff; border:none; padding:14px; border-radius:999px;
+  font-weight:700; font-size:.98rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.enquiry-form button:hover{ background: var(--cocoa); }
+.enquiry-note{ font-size:.8rem; color: var(--cocoa-soft); margin-top:10px; }
+
 /* footer */
 footer{ background: var(--cream-soft); padding: 60px 0 50px; }
 .foot-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; text-align:center; }

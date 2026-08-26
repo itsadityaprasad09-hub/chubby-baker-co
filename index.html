@@ -99,6 +99,44 @@
 
 <div class="divider-bar"></div>
 
+<section class="reviews-section">
+  <div class="container">
+    <h2>What People Are Saying</h2>
+    <div class="rating-badges">
+      <div class="rating-badge">
+        <div class="stars">★★★★★</div>
+        <div class="score">4.6</div>
+        <div class="src">Zomato · 178 ratings</div>
+      </div>
+      <div class="rating-badge">
+        <div class="stars">★★★★★</div>
+        <div class="score">4.5</div>
+        <div class="src">Justdial · 273 ratings</div>
+      </div>
+    </div>
+  </div>
+  <div class="review-box" id="reviewBox"></div>
+  <div class="review-dots" id="reviewDots"></div>
+  <p class="reviews-cta"><a class="underline-link" href="https://www.zomato.com/mumbai/chubby-baker-co-bandstand-bandra-west/reviews" target="_blank" rel="noopener">Read more reviews on Zomato →</a></p>
+</section>
+
+<section class="enquiry-section">
+  <div class="container">
+    <h2>Planning a Cake?</h2>
+    <p>Tell us the occasion, flavour and date — we'll get back to you on WhatsApp to sort out the details.</p>
+    <form class="enquiry-form" id="enquiryForm">
+      <input type="text" id="enqName" placeholder="Your name" required>
+      <input type="tel" id="enqPhone" placeholder="Phone number" required>
+      <textarea id="enqMessage" placeholder="Tell us about the cake — occasion, flavour, date, serves how many..." required></textarea>
+      <button type="submit">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+        Send Enquiry on WhatsApp
+      </button>
+    </form>
+    <p class="enquiry-note">This opens WhatsApp with your details pre-filled — no separate form server, so nothing is stored except in your own WhatsApp chat.</p>
+  </div>
+</section>
+
 <footer id="location">
   <div class="container foot-grid">
     <div>
@@ -146,6 +184,53 @@
   toggle.addEventListener('click', openNav);
   closeBtn.addEventListener('click', closeNav);
   scrim.addEventListener('click', closeNav);
+</script>
+
+<script>
+(function () {
+  // Themes summarised from public Zomato / Justdial / Wanderlog reviews (paraphrased, not verbatim quotes)
+  var reviews = [
+    { stars: 5, text: "Burnt basque cheesecake is a favourite — light, not overly sweet, easy to keep going back for another slice.", tag: "Zomato · 4.6★" },
+    { stars: 5, text: "Chocolate cake is moist with a well-balanced sweetness, and the lasso shortbreads are buttery and crumbly.", tag: "Justdial · 4.5★" },
+    { stars: 5, text: "Packaging gets a special mention — thoughtful presentation, and deliveries stay on time even in bad weather.", tag: "Wanderlog" }
+  ];
+  var box = document.getElementById('reviewBox');
+  var dotsWrap = document.getElementById('reviewDots');
+  box.innerHTML = reviews.map(function (r, i) {
+    return '<div class="review-slide' + (i === 0 ? ' active' : '') + '">' +
+      '<div class="stars">' + '★'.repeat(r.stars) + '</div>' +
+      '<p>' + r.text + '</p>' +
+      '<div class="src-tag">' + r.tag + '</div>' +
+      '</div>';
+  }).join('');
+  dotsWrap.innerHTML = reviews.map(function (_, i) {
+    return '<button class="review-dot' + (i === 0 ? ' active' : '') + '" data-i="' + i + '" aria-label="Review ' + (i + 1) + '"></button>';
+  }).join('');
+  var slides = box.querySelectorAll('.review-slide');
+  var dots = dotsWrap.querySelectorAll('.review-dot');
+  var current = 0, timer;
+  function show(i) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function startAuto() { clearInterval(timer); timer = setInterval(function () { show(current + 1); }, 4500); }
+  dots.forEach(function (d) { d.addEventListener('click', function () { show(parseInt(d.getAttribute('data-i'), 10)); startAuto(); }); });
+  startAuto();
+})();
+</script>
+
+<script>
+  document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('enqName').value.trim();
+    var phone = document.getElementById('enqPhone').value.trim();
+    var message = document.getElementById('enqMessage').value.trim();
+    var text = "Hi! I'd like to enquire about a cake.\n\nName: " + name + "\nPhone: " + phone + "\n\n" + message;
+    window.open('https://wa.me/919167072309?text=' + encodeURIComponent(text), '_blank');
+  });
 </script>
 
 </body>
