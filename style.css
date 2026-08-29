@@ -47,7 +47,7 @@ a{ text-decoration:none; color:inherit; }
 
 /* hero */
 .hero{
-  position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; min-height:78vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; overflow:hidden; color: var(--cream-soft);
 }
 .hero .scene-bg{ position:absolute; inset:0; z-index:0; }
@@ -60,24 +60,24 @@ a{ text-decoration:none; color:inherit; }
 .hero-content{ position:relative; z-index:2; }
 .hero h1{ font-size: clamp(3rem, 8vw, 5.5rem); }
 .hero .tagline{ font-style:italic; font-size:1.15rem; margin-top:10px; letter-spacing:.02em; }
-.scroll-arrow{ position:relative; z-index:2; margin-top:60px; font-size:1.6rem; animation: bob 1.8s ease-in-out infinite; }
+.scroll-arrow{ position:relative; z-index:2; margin-top:30px; font-size:1.6rem; animation: bob 1.8s ease-in-out infinite; }
 @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(10px);} }
 
 /* intro text */
-.intro{ text-align:center; padding: 70px 0 20px; }
+.intro{ text-align:center; padding: 40px 0 10px; }
 .intro p{ max-width: 640px; margin:0 auto 22px; font-size:1.05rem; }
 
 /* signature dish */
-.dish{ padding: 10px 0 60px; text-align:center; }
+.dish{ padding: 10px 0 35px; text-align:center; }
 .dish-photo{ border-radius: 10px; overflow:hidden; max-width:760px; margin:0 auto; }
 .dish-photo svg{ width:100%; height:auto; display:block; }
 .dish-caption{ font-family: var(--serif); font-style:italic; margin-top:20px; font-size:1.3rem; }
 
 /* divider */
-.divider-bar{ height:70px; background: var(--tan); }
+.divider-bar{ height:36px; background: var(--tan); }
 
 /* ---------- reviews ---------- */
-.reviews-section{ padding: 60px 0 20px; text-align:center; }
+.reviews-section{ padding: 36px 0 14px; text-align:center; }
 .reviews-section h2{ font-size: clamp(1.5rem, 3.5vw, 1.9rem); margin-bottom:6px; }
 .review-box{
   position:relative; width:min(80vw, 280px); aspect-ratio: 1/1; margin: 18px auto 0;
@@ -114,7 +114,7 @@ a{ text-decoration:none; color:inherit; }
 .enquiry-note{ font-size:.8rem; color: var(--cocoa-soft); margin-top:10px; }
 
 /* footer */
-footer{ background: var(--cream-soft); padding: 60px 0 50px; }
+footer{ background: var(--cream-soft); padding: 40px 0 34px; }
 .foot-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; text-align:center; }
 @media (max-width:700px){ .foot-grid{ grid-template-columns:1fr; gap:44px; } }
 footer h2{ font-size:1.6rem; margin-bottom:16px; }
