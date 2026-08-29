@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order — Chubby Baker & Co</title>
+<meta name="description" content="Order custom cakes and desserts from Chubby Baker & Co, Bandra West, Mumbai.">
+<link rel="canonical" href="https://itsadityaprasad09-hub.github.io/chubby-baker-co/order.html">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top-nav" style="position:relative; background:var(--cocoa);">
+  <a href="index.html" style="display:flex; align-items:center;"><img src="assets/logo.png" alt="Chubby Baker & Co logo" class="logo-img"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">☰</button>
+</nav>
+
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-panel" id="navPanel" aria-hidden="true">
+  <button class="close-btn" id="navClose" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="order.html">Order</a></li>
+  </ul>
+</aside>
+
+<header class="page-hero">
+  <div class="container">
+    <h1>Order With Us</h1>
+    <p>Custom cakes, made fresh after you reach out</p>
+  </div>
+</header>
+
+<section class="about-body" style="margin-top:40px;">
+  <p>There's no walk-in counter — every cake is made after you get in touch. Here's how it works:</p>
+</section>
+
+<section class="container" style="max-width:600px; margin:0 auto 50px; padding:0 24px;">
+  <div style="display:flex; flex-direction:column; gap:22px;">
+    <div style="display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-family:var(--serif); font-size:1.8rem; color:var(--berry); min-width:36px;">1</div>
+      <div><strong style="color:var(--cocoa);">Tell us what you need</strong><p style="margin:4px 0 0; color:var(--cocoa-soft); font-size:.95rem;">Occasion, flavour, size and date — use the form below or message us directly on WhatsApp.</p></div>
+    </div>
+    <div style="display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-family:var(--serif); font-size:1.8rem; color:var(--berry); min-width:36px;">2</div>
+      <div><strong style="color:var(--cocoa);">We confirm details &amp; price</strong><p style="margin:4px 0 0; color:var(--cocoa-soft); font-size:.95rem;">We'll get back to you on WhatsApp to confirm the order and pickup/delivery time.</p></div>
+    </div>
+    <div style="display:flex; gap:16px; align-items:flex-start;">
+      <div style="font-family:var(--serif); font-size:1.8rem; color:var(--berry); min-width:36px;">3</div>
+      <div><strong style="color:var(--cocoa);">Fresh bake, on time</strong><p style="margin:4px 0 0; color:var(--cocoa-soft); font-size:.95rem;">Your cake is baked close to when you need it — pickup from our Bandra West kitchen.</p></div>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:34px;">
+    <a class="underline-link" href="menu.html" style="font-size:1rem;">View Full Menu →</a>
+    &nbsp; · &nbsp;
+    <a class="underline-link" href="tel:+919167072309" style="font-size:1rem;">Call +91 91670 72309 →</a>
+  </p>
+</section>
+
+<div class="divider-bar"></div>
+
+<section class="enquiry-section">
+  <div class="container">
+    <h2>Send Us an Enquiry</h2>
+    <p>Fill this in and it'll open WhatsApp with your details ready to send.</p>
+    <form class="enquiry-form" id="enquiryForm">
+      <input type="text" id="enqName" placeholder="Your name" required>
+      <input type="tel" id="enqPhone" placeholder="Phone number" required>
+      <textarea id="enqMessage" placeholder="Tell us about the cake — occasion, flavour, date, serves how many..." required></textarea>
+      <button type="submit">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+        Send Enquiry on WhatsApp
+      </button>
+    </form>
+    <p class="enquiry-note">This opens WhatsApp with your details pre-filled — no separate form server, so nothing is stored except in your own WhatsApp chat.</p>
+  </div>
+</section>
+
+<a class="whatsapp-fab" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20cake." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  var scrim = document.getElementById('navScrim');
+  var closeBtn = document.getElementById('navClose');
+  function openNav(){ panel.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
+  function closeNav(){ panel.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
+  toggle.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+  scrim.addEventListener('click', closeNav);
+
+  document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('enqName').value.trim();
+    var phone = document.getElementById('enqPhone').value.trim();
+    var message = document.getElementById('enqMessage').value.trim();
+    var text = "Hi! I'd like to enquire about a cake.\n\nName: " + name + "\nPhone: " + phone + "\n\n" + message;
+    window.open('https://wa.me/919167072309?text=' + encodeURIComponent(text), '_blank');
+  });
+</script>
+
+</body>
+</html>
