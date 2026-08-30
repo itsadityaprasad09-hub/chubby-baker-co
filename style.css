@@ -80,7 +80,7 @@ a{ text-decoration:none; color:inherit; }
 .reviews-section{ padding: 36px 0 14px; text-align:center; }
 .reviews-section h2{ font-size: clamp(1.5rem, 3.5vw, 1.9rem); margin-bottom:6px; }
 .review-box{
-  position:relative; width:min(80vw, 280px); aspect-ratio: 1/1; margin: 18px auto 0;
+  position:relative; width:min(70vw, 260px); aspect-ratio: 1/1; margin: 18px 0 0 24px;
   background: var(--cream); border-radius: 20px; overflow:hidden;
   box-shadow: 0 14px 30px -18px rgba(59,36,24,.3);
 }
@@ -92,7 +92,7 @@ a{ text-decoration:none; color:inherit; }
 .review-slide .stars{ color: var(--gold, #c9932f); font-size:.9rem; letter-spacing:.12em; margin-bottom:10px; }
 .review-slide p{ font-size:.88rem; color: var(--cocoa); line-height:1.5; margin:0; }
 .review-slide .src-tag{ font-family: var(--hand); font-size:1.05rem; color: var(--berry); margin-top:12px; }
-.review-dots{ display:flex; gap:7px; justify-content:center; margin-top:14px; }
+.review-dots{ display:flex; gap:7px; justify-content:flex-start; margin: 14px 0 0 24px; }
 .review-dot{ width:7px; height:7px; border-radius:50%; background: var(--tan); border:none; padding:0; cursor:pointer; }
 .review-dot.active{ background: var(--berry); }
 
