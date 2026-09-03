@@ -138,11 +138,17 @@ footer p{ margin:2px 0; font-size:.98rem; }
 
 .menu-section{ padding: 50px 0; max-width: 700px; margin:0 auto; }
 .pdf-menu-section{ padding: 40px 0 10px; }
-.pdf-menu-frame{
-  max-width: 700px; margin: 0 auto; height: 70vh; min-height:420px; border-radius: 14px; overflow:hidden;
-  box-shadow: 0 18px 40px -20px rgba(59,36,24,.35); border: 1px solid rgba(59,36,24,.1);
+.pdf-menu-card{ max-width: 700px; margin: 0 auto; }
+.pdf-menu-link{
+  display:flex; align-items:center; gap:18px; padding: 24px 26px; border-radius: 14px;
+  background: var(--cream, #fff); box-shadow: 0 18px 40px -20px rgba(59,36,24,.35);
+  border: 1px solid rgba(59,36,24,.12); text-decoration:none; transition: transform .15s ease, box-shadow .15s ease;
 }
-.pdf-menu-frame object{ display:block; }
+.pdf-menu-link:hover{ transform: translateY(-2px); box-shadow: 0 22px 46px -18px rgba(59,36,24,.4); }
+.pdf-menu-icon{ font-size: 2.2rem; line-height:1; }
+.pdf-menu-text{ display:flex; flex-direction:column; gap:4px; }
+.pdf-menu-text strong{ color: var(--berry); font-size:1.15rem; }
+.pdf-menu-text small{ color: var(--cocoa-soft); font-style:italic; }
 .menu-section h2{
   font-size:1.5rem; color: var(--berry); border-bottom: 2px solid var(--tan); padding-bottom:10px; margin-bottom:20px;
 }
