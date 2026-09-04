@@ -232,15 +232,24 @@ a.featured-badge:hover{ transform: translateY(-3px); box-shadow: 0 16px 34px -16
 .reviews-col .review-dots{ justify-content:center; margin: 14px auto 0; }
 .findus-col{ width:100%; }
 .findus-col .featured-grid{
-  display:grid; grid-template-columns: 1fr 1fr; gap:14px; max-width:320px; margin:20px auto 0; padding:0;
+  display:flex; flex-direction:column; gap:12px; max-width:280px; margin:20px auto 0; padding:0;
 }
-.findus-col .featured-badge{ padding:10px 14px 10px 8px; }
-.findus-col .featured-info strong{ font-size:.86rem; }
-.findus-col .featured-info small{ font-size:.7rem; }
-@media (max-width:420px){ .findus-col .featured-grid{ grid-template-columns: 1fr; max-width:260px; } }
+.findus-col .featured-badge{ padding:10px 16px 10px 10px; width:100%; }
+.findus-col .featured-info strong{ font-size:.9rem; }
+.findus-col .featured-info small{ font-size:.74rem; }
 
 .gallery-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; max-width:900px; margin: 40px auto; padding:0 24px; }
 @media (max-width:620px){ .gallery-grid{ grid-template-columns: repeat(2,1fr); } }
+
+/* ---------- occasions filter tabs ---------- */
+.occ-tabs{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:900px; margin:34px auto 0; padding:0 24px; }
+.occ-tab{
+  font-family: var(--sans); font-weight:700; font-size:.85rem; color:var(--cocoa); background: var(--cream);
+  border: 1px solid rgba(59,36,24,.15); border-radius:999px; padding:9px 18px; cursor:pointer;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+.occ-tab:hover{ transform: translateY(-2px); }
+.occ-tab.active{ background: var(--berry); color:#fff; border-color:var(--berry); }
 .gallery-empty{
   aspect-ratio: 4/5; border-radius:10px; background: var(--tan); opacity:.35;
   display:flex; align-items:center; justify-content:center; color: var(--cocoa); font-size:.8rem; text-align:center; padding:10px;

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Occasions — Chubby Baker & Co</title>
+<meta name="description" content="Browse Chubby Baker & Co cakes by occasion — birthdays, bachelorette, artistic custom designs and more.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top-nav" style="position:relative; background:var(--cocoa);">
+  <a href="index.html" style="display:flex; align-items:center;"><img src="assets/logo.png" alt="Chubby Baker & Co logo" class="logo-img"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">☰</button>
+</nav>
+
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-panel" id="navPanel" aria-hidden="true">
+  <button class="close-btn" id="navClose" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="occasions.html">Occasions</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="order.html">Order</a></li>
+  </ul>
+</aside>
+
+<header class="page-hero">
+  <div class="container">
+    <h1>Cakes For Every Occasion</h1>
+    <p>Browse by the moment you're celebrating</p>
+  </div>
+</header>
+
+<div class="occ-tabs" id="occTabs"></div>
+<div class="gallery-grid" id="occGrid"></div>
+
+<div class="container reveal" style="text-align:center; padding:36px 24px 56px;">
+  <p style="color:var(--cocoa-soft); margin-bottom:16px;">Don't see your occasion? We make custom cakes for anything you're celebrating.</p>
+  <a class="btn" href="order.html" style="display:inline-block; background:var(--berry); color:#fff; padding:16px 40px; border-radius:999px; font-weight:700; font-size:1.05rem; text-decoration:none;">Order Now →</a>
+</div>
+
+<footer id="location" class="reveal">
+  <div class="container foot-grid">
+    <div>
+      <h2>Hours</h2>
+      <p>Tue&ndash;Sat 11:00am&ndash;12:00am</p>
+      <p>Sunday 11:00am&ndash;12:00am</p>
+      <p>Closed on Mondays</p>
+      <p style="margin-top:16px;"><a class="underline-link" href="https://wa.me/919167072309" target="_blank" rel="noopener">Order a Cake</a></p>
+      <p style="margin-top:14px;"><strong>Phone</strong></p>
+      <p><a class="underline-link" href="tel:+919167072309">+91 91670 72309</a></p>
+      <a class="whatsapp-icon" href="https://wa.me/919167072309" target="_blank" rel="noopener" aria-label="WhatsApp us">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+      </a>
+    </div>
+    <div>
+      <h2>Follow us on</h2>
+      <a class="insta-circle" href="https://www.instagram.com/chubbybakerco/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--berry)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <div class="foot-logo"><img src="assets/logo.png" alt="Chubby Baker & Co logo" class="foot-logo-img"></div>
+    </div>
+    <div>
+      <h2>Location</h2>
+      <div class="map-frame">
+        <iframe title="Chubby Baker & Co location map" src="https://www.google.com/maps?q=19.0493807,72.8245083(Chubby+Baker+%26+Co)&z=16&output=embed" width="100%" height="150" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p style="margin-top:14px;">Dr Peter Dias Rd, Mount Mary,<br>Bandra West, Mumbai,<br>Maharashtra 400050</p>
+      <p><a class="underline-link" href="https://www.google.com/maps/place/Chubby+Baker+%26+Co,+Dr+Peter+Dias+Rd,+Mount+Mary,+Bandra+West,+Mumbai,+Maharashtra+400050/@19.0493807,72.8245083,16z/data=!4m6!3m5!1s0x3be7c98d01e0baef:0xc9224892aebaef61!8m2!3d19.0493807!4d72.8245083!16s%2Fg%2F11sc46_8hx" target="_blank" rel="noopener">Get Directions</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20cake." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.42-4.4-1.16l-.31-.18-3.02.79.8-2.94-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+
+<script src="scripts/reveal.js" defer></script>
+<script>
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  var scrim = document.getElementById('navScrim');
+  var closeBtn = document.getElementById('navClose');
+  function openNav(){ panel.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
+  function closeNav(){ panel.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
+  toggle.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+  scrim.addEventListener('click', closeNav);
+
+  fetch('data/occasions.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(items => {
+      var grid = document.getElementById('occGrid');
+      var tabsWrap = document.getElementById('occTabs');
+      var cats = ['All'];
+      items.forEach(function (it) { if (cats.indexOf(it.category) === -1) cats.push(it.category); });
+
+      tabsWrap.innerHTML = cats.map(function (c, i) {
+        return '<button class="occ-tab' + (i === 0 ? ' active' : '') + '" data-cat="' + c + '">' + c + '</button>';
+      }).join('');
+
+      grid.innerHTML = items.map(function (p) {
+        return '<figure class="reveal occ-item" data-cat="' + p.category + '" style="margin:0;">' +
+          '<img src="' + p.url + '" alt="' + (p.caption || 'Chubby Baker & Co') + '" loading="lazy" style="width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px;">' +
+          (p.caption ? '<figcaption style="text-align:center; font-size:.8rem; margin-top:6px; color:var(--cocoa-soft);">' + p.caption + '</figcaption>' : '') +
+          '</figure>';
+      }).join('');
+
+      if (window.chubbyReveal) window.chubbyReveal.scan();
+
+      var tabs = tabsWrap.querySelectorAll('.occ-tab');
+      var itemsEls = grid.querySelectorAll('.occ-item');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          var cat = tab.getAttribute('data-cat');
+          itemsEls.forEach(function (el) {
+            el.style.display = (cat === 'All' || el.getAttribute('data-cat') === cat) ? '' : 'none';
+          });
+        });
+      });
+    })
+    .catch(() => {
+      document.getElementById('occGrid').innerHTML = '<p style="text-align:center; padding:30px;">Couldn\'t load photos right now.</p>';
+    });
+</script>
+
+</body>
+</html>
