@@ -6,6 +6,7 @@
 <title>Menu — Chubby Baker & Co</title>
 <meta name="description" content="Full menu and prices — Chubby Baker & Co, Bandra West, Mumbai.">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,7 +38,7 @@
 <section class="pdf-menu-section">
   <div class="container">
     <h2 style="text-align:center; border:none;">Full Menu (PDF)</h2>
-    <div class="pdf-menu-card">
+    <div class="pdf-menu-card reveal">
       <a href="assets/menu.pdf" target="_blank" rel="noopener" class="pdf-menu-link">
         <span class="pdf-menu-icon">📄</span>
         <span class="pdf-menu-text">
@@ -57,6 +58,7 @@
   <a class="underline-link" href="https://wa.me/919167072309?text=Hi!%20I'd%20like%20to%20order%20from%20the%20menu." target="_blank" rel="noopener" style="font-size:1.05rem;">Order on WhatsApp →</a>
 </section>
 
+<script src="scripts/reveal.js" defer></script>
 <script>
   var toggle = document.getElementById('navToggle');
   var panel = document.getElementById('navPanel');
@@ -73,7 +75,7 @@
     .then(categories => {
       const wrap = document.getElementById('menuContainer');
       wrap.innerHTML = categories.map(cat => `
-        <section class="menu-section">
+        <section class="menu-section reveal">
           <h2>${cat.category}</h2>
           ${cat.items.map(it => `
             <div class="menu-item">
@@ -81,6 +83,7 @@
               <span class="price">₹${it.price}</span>
             </div>`).join('')}
         </section>`).join('');
+      if (window.chubbyReveal) window.chubbyReveal.scan();
     })
     .catch(() => {
       document.getElementById('menuContainer').innerHTML = '<p style="text-align:center; padding:40px;">Menu is being updated — please check back shortly, or message us on WhatsApp.</p>';

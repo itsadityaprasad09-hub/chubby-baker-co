@@ -6,6 +6,7 @@
 <title>Gallery — Chubby Baker & Co</title>
 <meta name="description" content="Photo gallery — Chubby Baker & Co, Bandra West, Mumbai.">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,7 +31,7 @@
 <header class="page-hero">
   <div class="container">
     <h1>Gallery</h1>
-    <p>Photos coming soon</p>
+    <p>A peek at our recent bakes</p>
   </div>
 </header>
 
@@ -38,6 +39,7 @@
 <p class="gallery-note" id="galleryNote">Real photos will be added here soon. In the meantime, follow <a class="underline-link" href="https://www.instagram.com/chubbybakerco/" target="_blank" rel="noopener">@chubbybakerco</a> on Instagram.</p>
 
 
+<script src="scripts/reveal.js" defer></script>
 <script>
   var toggle = document.getElementById('navToggle');
   var panel = document.getElementById('navPanel');
@@ -60,10 +62,11 @@
       }
       note.style.display = 'none';
       grid.innerHTML = photos.map(p => `
-        <figure style="margin:0;">
-          <img src="${p.url}" alt="${p.caption || 'Chubby Baker & Co'}" style="width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px;">
+        <figure class="reveal" style="margin:0;">
+          <img src="${p.url}" alt="${p.caption || 'Chubby Baker & Co'}" loading="lazy" style="width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px;">
           ${p.caption ? `<figcaption style="text-align:center; font-size:.8rem; margin-top:6px; color:var(--cocoa-soft);">${p.caption}</figcaption>` : ''}
         </figure>`).join('');
+      if (window.chubbyReveal) window.chubbyReveal.scan();
     })
     .catch(() => {
       document.getElementById('galleryGrid').innerHTML = Array(6).fill('<div class="gallery-empty">Photo coming soon</div>').join('');

@@ -6,6 +6,7 @@
 <title>About Us — Chubby Baker & Co</title>
 <meta name="description" content="About Chubby Baker & Co, Bandra West, Mumbai.">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
   <p>Chubby Baker &amp; Co started as a home-kitchen baking project in Bandra West and grew into one of the neighbourhood's go-to spots for custom cakes and small-batch desserts — built entirely on word of mouth, no walk-in counter, no shortcuts.</p>
 </section>
 
-<div class="about-photo-grid">
+<div class="about-photo-grid reveal">
   <div class="about-photo">
     <img src="assets/gallery/photo-25859.jpg" alt="A gold leaf two-tier cake by Chubby Baker & Co" loading="lazy">
   </div>
@@ -47,14 +48,14 @@
   </div>
 </div>
 
-<div class="about-stats">
+<div class="about-stats reveal">
   <div class="stat-item"><span class="stat-value">100%</span><span class="stat-label">Custom Orders</span></div>
   <div class="stat-item"><span class="stat-value">4.6★</span><span class="stat-label">Zomato Rating</span></div>
   <div class="stat-item"><span class="stat-value">4.5★</span><span class="stat-label">Justdial Rating</span></div>
   <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Shortcuts Taken</span></div>
 </div>
 
-<div class="about-photo" style="margin-top:44px;">
+<div class="about-photo reveal" style="margin-top:44px;">
   <img src="assets/brownies-photo.jpg" alt="A tray of fudgy chocolate chip brownies next to Chubby Baker & Co packaging boxes" loading="lazy">
 </div>
 <p class="dish-caption" style="text-align:center;">Fresh From the Oven</p>
@@ -75,12 +76,12 @@
 
 <section class="reviews-findus-section">
   <div class="container reviews-findus-grid">
-    <div class="reviews-col">
+    <div class="reviews-col reveal">
       <h2>Guest Voices</h2>
       <div class="review-box" id="reviewBox"></div>
       <div class="review-dots" id="reviewDots"></div>
     </div>
-    <div class="findus-col">
+    <div class="findus-col reveal">
       <h2>Find Us On</h2>
       <div class="featured-grid">
         <div class="featured-badge">
@@ -184,6 +185,7 @@
 })();
 </script>
 
+<script src="scripts/reveal.js" defer></script>
 <script>
   var toggle = document.getElementById('navToggle');
   var panel = document.getElementById('navPanel');

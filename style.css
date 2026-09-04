@@ -63,6 +63,14 @@ a{ text-decoration:none; color:inherit; }
 .scroll-arrow{ position:relative; z-index:2; margin-top:30px; font-size:1.6rem; animation: bob 1.8s ease-in-out infinite; }
 @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(10px);} }
 
+/* ---------- scroll reveal ---------- */
+.reveal{ opacity:0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+.reveal-stagger.is-visible > *{ transition-delay: calc(var(--stagger-i, 0) * 90ms); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
 /* intro text */
 .intro{ text-align:center; padding: 40px 0 10px; }
 .intro p{ max-width: 640px; margin:0 auto 22px; font-size:1.05rem; }
@@ -112,6 +120,22 @@ a{ text-decoration:none; color:inherit; }
 }
 .enquiry-form button:hover{ background: var(--cocoa); }
 .enquiry-note{ font-size:.8rem; color: var(--cocoa-soft); margin-top:10px; }
+
+/* ---------- FAQ accordion ---------- */
+.faq-section{ padding: 40px 0 10px; }
+.faq-section h2{ margin-bottom:24px; }
+.faq-list{ max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.faq-item{ background: var(--cream); border-radius:12px; overflow:hidden; box-shadow: 0 10px 24px -18px rgba(59,36,24,.3); }
+.faq-question{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer; font-family:var(--sans);
+  font-weight:700; color:var(--cocoa); font-size:.98rem; padding:16px 20px; display:flex;
+  justify-content:space-between; align-items:center; gap:12px;
+}
+.faq-plus{ font-family:var(--serif); font-size:1.3rem; color:var(--berry); transition: transform .25s ease; flex-shrink:0; }
+.faq-item.open .faq-plus{ transform: rotate(45deg); }
+.faq-answer{ max-height:0; overflow:hidden; transition: max-height .3s ease; }
+.faq-answer p{ margin:0; padding:0 20px 18px; color:var(--cocoa-soft); font-size:.9rem; line-height:1.6; }
+.faq-item.open .faq-answer{ max-height:220px; }
 
 /* footer */
 footer{ background: var(--cream-soft); padding: 40px 0 34px; }
