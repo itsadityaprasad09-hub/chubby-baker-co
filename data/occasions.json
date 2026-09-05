@@ -133,5 +133,40 @@
     "url": "assets/gallery/rainbow-floral-swirl-cake.jpg",
     "caption": "Rainbow Floral Swirl Cake",
     "category": "Artistic & Custom"
+  },
+  {
+    "url": "assets/gallery/vintage-bow-cake.jpg",
+    "caption": "Vintage Bow Cake",
+    "category": "Artistic & Custom"
+  },
+  {
+    "url": "assets/gallery/cherry-trellis-cake.jpg",
+    "caption": "Cherry Trellis Cake",
+    "category": "Artistic & Custom"
+  },
+  {
+    "url": "assets/gallery/merry-christmas-cake.jpg",
+    "caption": "Merry Christmas Cake",
+    "category": "Seasonal & Holiday"
+  },
+  {
+    "url": "assets/gallery/christmas-tree-cake.jpg",
+    "caption": "Christmas Tree Cake",
+    "category": "Seasonal & Holiday"
+  },
+  {
+    "url": "assets/gallery/mitali-birthday-cake.jpg",
+    "caption": "Happy Birthday Mitali Cake",
+    "category": "Birthday"
+  },
+  {
+    "url": "assets/gallery/strawberry-flower-cake.jpg",
+    "caption": "Strawberry & Edible Flower Cake",
+    "category": "Artistic & Custom"
+  },
+  {
+    "url": "assets/gallery/gold-bar-cake.jpg",
+    "caption": "Gold Bar Custom Cake",
+    "category": "Artistic & Custom"
   }
 ]
